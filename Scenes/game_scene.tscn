@@ -1,3 +1,122 @@
-[gd_scene format=3 uid="uid://bqipc1m3vccb3"]
+[gd_scene load_steps=15 format=3 uid="uid://bqipc1m3vccb3"]
+
+[ext_resource type="PackedScene" uid="uid://gx6pe31mxq3a" path="res://Scenes/player.tscn" id="1_rch4r"]
+[ext_resource type="Script" path="res://Scenes/bunker.gd" id="2_ermfy"]
+[ext_resource type="Texture2D" uid="uid://cj4k21q8nrwi7" path="res://Assets/Sprites/bunker.png" id="2_l21dh"]
+[ext_resource type="Script" path="res://Scenes/spawners.gd" id="2_qhm6a"]
+[ext_resource type="PackedScene" uid="uid://b02kqjnyyd170" path="res://Scenes/zombie.tscn" id="3_15737"]
+[ext_resource type="Script" path="res://Scenes/despawners.gd" id="4_skm5k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vtf08"]
+radius = 8.06226
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_346xx"]
+size = Vector2(29, 595)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7bpg"]
+size = Vector2(59, 610)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nn2x"]
+size = Vector2(39, 906.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1harr"]
+size = Vector2(28.5, 647.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07c61"]
+size = Vector2(35, 647)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgpxt"]
+size = Vector2(1244, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60m2b"]
+size = Vector2(1247, 35)
 
 [node name="GameScene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 319)
+
+[node name="Player" parent="." instance=ExtResource("1_rch4r")]
+position = Vector2(467, 293)
+
+[node name="Bunker" type="Area2D" parent="."]
+position = Vector2(582, 327)
+scale = Vector2(10, 10)
+collision_layer = 0
+collision_mask = 24
+script = ExtResource("2_ermfy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bunker"]
+texture_filter = 1
+texture = ExtResource("2_l21dh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bunker"]
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_vtf08")
+
+[node name="Spawners" type="Node2D" parent="."]
+script = ExtResource("2_qhm6a")
+zombie_scene = ExtResource("3_15737")
+
+[node name="LeftSpawner" type="Area2D" parent="Spawners"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawners/LeftSpawner"]
+position = Vector2(36, 328)
+shape = SubResource("RectangleShape2D_346xx")
+
+[node name="RightSpawner" type="Area2D" parent="Spawners"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawners/RightSpawner"]
+position = Vector2(1052, 326)
+shape = SubResource("RectangleShape2D_n7bpg")
+
+[node name="TopSpawner" type="Area2D" parent="Spawners"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawners/TopSpawner"]
+position = Vector2(529.75, 44)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_3nn2x")
+
+[node name="Despawners" type="Node2D" parent="."]
+script = ExtResource("4_skm5k")
+
+[node name="RightDespawner" type="Area2D" parent="Despawners"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Despawners/RightDespawner"]
+position = Vector2(-24.75, 322.25)
+shape = SubResource("RectangleShape2D_1harr")
+
+[node name="LeftDespawner" type="Area2D" parent="Despawners"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Despawners/LeftDespawner"]
+position = Vector2(1122.5, 324)
+shape = SubResource("RectangleShape2D_07c61")
+
+[node name="TopDespawner" type="Area2D" parent="Despawners"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Despawners/TopDespawner"]
+position = Vector2(584, -35)
+shape = SubResource("RectangleShape2D_pgpxt")
+
+[node name="BottomDespawner" type="Area2D" parent="Despawners"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Despawners/BottomDespawner"]
+position = Vector2(582.5, 677.5)
+shape = SubResource("RectangleShape2D_60m2b")
+
+[connection signal="area_entered" from="Bunker" to="Bunker" method="_on_bunker_entered"]
+[connection signal="area_entered" from="Despawners/RightDespawner" to="Despawners" method="_on_despawner_entered"]
+[connection signal="area_entered" from="Despawners/LeftDespawner" to="Despawners" method="_on_despawner_entered"]
+[connection signal="area_entered" from="Despawners/TopDespawner" to="Despawners" method="_on_despawner_entered"]
+[connection signal="area_entered" from="Despawners/BottomDespawner" to="Despawners" method="_on_despawner_entered"]
