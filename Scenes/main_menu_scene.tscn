@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0ehykqtr7y6k"]
+
+[ext_resource type="Script" path="res://Scenes/main_menu_scene.gd" id="1_s84ni"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_s84ni")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -183.5
+offset_top = 50.0
+offset_right = 183.5
+offset_bottom = 119.0
+grow_horizontal = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 50
+text = "Invaders"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -548.0
+offset_right = 250.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 2
+
+[node name="Play Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 45
+text = "Play"
+
+[node name="Quit Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 45
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]

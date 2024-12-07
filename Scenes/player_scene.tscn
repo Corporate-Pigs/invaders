@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://gx6pe31mxq3a"]
+
+[ext_resource type="Script" path="res://Scenes/player_scene.gd" id="1_uomrl"]
+[ext_resource type="Texture2D" uid="uid://c4gwatoe2myrv" path="res://Assets/Sprites/triangle.png" id="2_6ttuj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cman"]
+size = Vector2(32, 32)
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_uomrl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_6ttuj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6cman")
