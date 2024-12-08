@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-const NEXT_SCENE = "res://Scenes/game_scene.tscn"
+const NEXT_SCENE = "res://Levels/game_scene.tscn"
 
 func _on_play_button_pressed() -> void:
 	if get_tree().change_scene_to_file(NEXT_SCENE) != OK:

@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://bqipc1m3vccb3"]
 
-[ext_resource type="Script" path="res://Scenes/game_scene.gd" id="1_r3gdk"]
-[ext_resource type="PackedScene" uid="uid://gx6pe31mxq3a" path="res://Scenes/player.tscn" id="1_rch4r"]
-[ext_resource type="PackedScene" uid="uid://bcjgp8xowkghu" path="res://Scenes/bunker.tscn" id="2_mkfif"]
-[ext_resource type="Script" path="res://Scenes/spawners.gd" id="2_qhm6a"]
-[ext_resource type="PackedScene" uid="uid://b02kqjnyyd170" path="res://Scenes/zombie.tscn" id="3_15737"]
-[ext_resource type="Script" path="res://Scenes/despawners.gd" id="4_skm5k"]
+[ext_resource type="Script" path="res://Levels/game_scene.gd" id="1_r3gdk"]
+[ext_resource type="PackedScene" uid="uid://gx6pe31mxq3a" path="res://Prefabs/player/player.tscn" id="1_rch4r"]
+[ext_resource type="PackedScene" uid="uid://bcjgp8xowkghu" path="res://Prefabs/bunker/bunker.tscn" id="2_mkfif"]
+[ext_resource type="Script" path="res://Levels/spawners.gd" id="2_qhm6a"]
+[ext_resource type="PackedScene" uid="uid://b02kqjnyyd170" path="res://Prefabs/zombie/zombie.tscn" id="3_15737"]
+[ext_resource type="Script" path="res://Prefabs/despawners.gd" id="4_skm5k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_346xx"]
 size = Vector2(38.5, 595)

@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://gx6pe31mxq3a"]
 
-[ext_resource type="Script" path="res://Scenes/player.gd" id="1_uomrl"]
+[ext_resource type="Script" path="res://Prefabs/player/player.gd" id="1_uomrl"]
 [ext_resource type="Texture2D" uid="uid://c4gwatoe2myrv" path="res://Assets/Sprites/triangle.png" id="2_6ttuj"]
-[ext_resource type="Script" path="res://Scenes/gun.gd" id="3_2ww6j"]
-[ext_resource type="PackedScene" uid="uid://b0x0gnqm344wa" path="res://Scenes/bullet.tscn" id="4_6i6qt"]
+[ext_resource type="Script" path="res://Prefabs/player/gun.gd" id="3_2ww6j"]
+[ext_resource type="PackedScene" uid="uid://b0x0gnqm344wa" path="res://Prefabs/bullet/bullet.tscn" id="4_6i6qt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cman"]
 size = Vector2(32, 32)
