@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/main_menu_scene.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+EventBus="*res://event_bus.gd"
+
 [dotnet]
 
 project/assembly_name="New Game Project"
