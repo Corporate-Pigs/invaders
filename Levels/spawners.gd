@@ -6,7 +6,6 @@ class_name Spawners
 
 @onready var l_collision_shape_2d: CollisionShape2D = $LeftSpawner/CollisionShape2D
 @onready var r_collision_shape_2d: CollisionShape2D = $RightSpawner/CollisionShape2D
-@onready var t_collision_shape_2d: CollisionShape2D = $TopSpawner/CollisionShape2D
 
 @export var spawns_interval_in_seconds: float = 0.5
 @export var number_of_zombies: int = 0
@@ -14,7 +13,7 @@ var time_since_last_spawn: float = 0.0
 var spawner_areas = []
 
 func _ready() -> void:
-	spawner_areas = [l_collision_shape_2d, r_collision_shape_2d, t_collision_shape_2d]
+	spawner_areas = [l_collision_shape_2d, r_collision_shape_2d]
 
 func _can_spawn_zombie() -> bool:
 	return number_of_zombies > 0 and time_since_last_spawn > spawns_interval_in_seconds

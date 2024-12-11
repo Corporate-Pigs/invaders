@@ -1,9 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqipc1m3vccb3"]
+[gd_scene load_steps=10 format=3 uid="uid://bqipc1m3vccb3"]
 
 [ext_resource type="Script" path="res://Levels/game_scene.gd" id="1_r3gdk"]
 [ext_resource type="PackedScene" uid="uid://gx6pe31mxq3a" path="res://Prefabs/player/player.tscn" id="1_rch4r"]
-[ext_resource type="PackedScene" uid="uid://bcjgp8xowkghu" path="res://Prefabs/bunker/bunker.tscn" id="2_mkfif"]
+[ext_resource type="PackedScene" uid="uid://bcjgp8xowkghu" path="res://Prefabs/decoy/decoy.tscn" id="2_mkfif"]
+[ext_resource type="Script" path="res://Prefabs/despawners.gd" id="4_skm5k"]
 [ext_resource type="PackedScene" uid="uid://c676u215cqjc4" path="res://Prefabs/trensh/trensh.tscn" id="4_xid7u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ybss"]
+size = Vector2(43.25, 775)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixy2s"]
+size = Vector2(42, 647)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6smp"]
+size = Vector2(1358, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5j4r"]
+size = Vector2(1354, 35)
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_r3gdk")
@@ -11,11 +24,51 @@ script = ExtResource("1_r3gdk")
 [node name="Trensh" parent="." instance=ExtResource("4_xid7u")]
 position = Vector2(6, 1)
 
+[node name="Decoys" type="Node2D" parent="."]
+
+[node name="Decoy" parent="Decoys" instance=ExtResource("2_mkfif")]
+position = Vector2(168, 140)
+
+[node name="Decoy2" parent="Decoys" instance=ExtResource("2_mkfif")]
+position = Vector2(838, 427)
+
 [node name="Player" parent="." instance=ExtResource("1_rch4r")]
 position = Vector2(480, 326)
 
-[node name="Bunker" parent="." instance=ExtResource("2_mkfif")]
-position = Vector2(183, 456)
+[node name="Despawners" type="Node2D" parent="."]
+script = ExtResource("4_skm5k")
+
+[node name="RightDespawner" type="Area2D" parent="Despawners"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Despawners/RightDespawner"]
+position = Vector2(-95, 324.5)
+shape = SubResource("RectangleShape2D_8ybss")
+
+[node name="LeftDespawner" type="Area2D" parent="Despawners"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Despawners/LeftDespawner"]
+position = Vector2(1195, 312)
+shape = SubResource("RectangleShape2D_ixy2s")
+
+[node name="TopDespawner" type="Area2D" parent="Despawners"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Despawners/TopDespawner"]
+position = Vector2(561, -101)
+shape = SubResource("RectangleShape2D_a6smp")
+
+[node name="BottomDespawner" type="Area2D" parent="Despawners"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Despawners/BottomDespawner"]
+position = Vector2(611, 696)
+shape = SubResource("RectangleShape2D_i5j4r")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(578, 326)
@@ -49,3 +102,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 text = "Next round INBOUND"
+
+[connection signal="area_entered" from="Despawners/RightDespawner" to="Despawners" method="_on_despawner_entered"]
+[connection signal="area_entered" from="Despawners/LeftDespawner" to="Despawners" method="_on_despawner_entered"]
+[connection signal="area_entered" from="Despawners/TopDespawner" to="Despawners" method="_on_despawner_entered"]
+[connection signal="area_entered" from="Despawners/BottomDespawner" to="Despawners" method="_on_despawner_entered"]

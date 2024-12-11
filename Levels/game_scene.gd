@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var spawners: Node2D = $Spawners
+@onready var spawners: Node2D = $Trensh/Spawners
 @onready var score_label: Label = $Camera2D/ScoreLabel
 @onready var round_label: Label = $Camera2D/RoundLabel
 @onready var mid_title_label: Label = $Camera2D/MidTitleLabel
@@ -26,7 +26,7 @@ func _on_zombie_killed(zombie: Zombie) -> void:
 func _show_next_round() -> void:
 	pass
 	#mid_title_label.visible = true
-	#await get_tree().create_timer(5).timeout.connect(_start_next_round)
+	await get_tree().create_timer(5).timeout.connect(_start_next_round)
 
 func _start_next_round() -> void:
 	mid_title_label.visible = false
