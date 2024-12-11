@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 EventBus="*res://event_bus.gd"
 
+[display]
+
+window/size/viewport_width=1175
+
 [dotnet]
 
 project/assembly_name="New Game Project"
@@ -53,11 +57,12 @@ shoot={
 
 [layer_names]
 
-2d_physics/layer_1="player"
 2d_physics/layer_2="bunker"
 2d_physics/layer_3="despawner"
 2d_physics/layer_4="zombie"
 2d_physics/layer_5="bullet"
+2d_physics/layer_6="trensh_margin"
+2d_physics/layer_7="player"
 
 [rendering]
 

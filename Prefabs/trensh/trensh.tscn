@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://c676u215cqjc4"]
+
+[ext_resource type="Script" path="res://Levels/spawners.gd" id="1_3x1sm"]
+[ext_resource type="Texture2D" uid="uid://dof04l3frjlye" path="res://Assets/Sprites/level-test-background.png" id="1_8627a"]
+[ext_resource type="PackedScene" uid="uid://b02kqjnyyd170" path="res://Prefabs/zombie/zombie.tscn" id="2_cyb4k"]
+[ext_resource type="Script" path="res://Prefabs/despawners.gd" id="3_l7n5q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fd5e"]
+size = Vector2(38.5, 595)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hoq4q"]
+size = Vector2(37, 788.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_od10r"]
+size = Vector2(43.25, 775)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ishet"]
+size = Vector2(42, 647)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wejqo"]
+size = Vector2(1358, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1asl6"]
+size = Vector2(1354, 35)
+
+[node name="Trensh" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578, 327)
+texture = ExtResource("1_8627a")
+
+[node name="Margins" type="StaticBody2D" parent="."]
+position = Vector2(507, 325)
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Margins"]
+polygon = PackedVector2Array(74, 314, 9, 315, 6, 230, 0, 160, -66, 114, -81, 47, -82, -9, -57, -60, -7, -89, 81, -118, 157, -139, 242, -147, 341, -157, 439, -176, 519, -189, 600, -215, 637, -232, 624, -247, 520, -209, 419, -188, 325, -169, 230, -165, 158, -155, 93, -144, 3, -112, -70, -69, -98, -21, -98, 50, -86, 111, -59, 139, -15, 169, -9, 241, -3, 326, 83, 325, 90, 302, 85, 242, 89, 183, 97, 143, 47, 118, 7, 88, 25, 20, 67, -32, 140, -64, 197, -76, 385, -76, 451, -84, 561, -101, 631, -118, 645, -126, 648, -249, 633, -248, 635, -140, 540, -117, 431, -102, 382, -93, 193, -94, 120, -77, 53, -46, 6, 16, -7, 75, 3, 105, 37, 129, 75, 141, 68, 188, 66, 251)
+
+[node name="Spawners" type="Node2D" parent="."]
+script = ExtResource("1_3x1sm")
+zombie_scene = ExtResource("2_cyb4k")
+
+[node name="LeftSpawner" type="Area2D" parent="Spawners"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawners/LeftSpawner"]
+position = Vector2(-39, 329)
+shape = SubResource("RectangleShape2D_5fd5e")
+
+[node name="RightSpawner" type="Area2D" parent="Spawners"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawners/RightSpawner"]
+position = Vector2(1266, 275.75)
+shape = SubResource("RectangleShape2D_hoq4q")
+
+[node name="Despawners" type="Node2D" parent="."]
+script = ExtResource("3_l7n5q")
+
+[node name="RightDespawner" type="Area2D" parent="Despawners"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Despawners/RightDespawner"]
+position = Vector2(-95, 324.5)
+shape = SubResource("RectangleShape2D_od10r")
+
+[node name="LeftDespawner" type="Area2D" parent="Despawners"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Despawners/LeftDespawner"]
+position = Vector2(1195, 312)
+shape = SubResource("RectangleShape2D_ishet")
+
+[node name="TopDespawner" type="Area2D" parent="Despawners"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Despawners/TopDespawner"]
+position = Vector2(561, -101)
+shape = SubResource("RectangleShape2D_wejqo")
+
+[node name="BottomDespawner" type="Area2D" parent="Despawners"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Despawners/BottomDespawner"]
+position = Vector2(611, 696)
+shape = SubResource("RectangleShape2D_1asl6")
+
+[connection signal="area_entered" from="Despawners/RightDespawner" to="Despawners" method="_on_despawner_entered"]
+[connection signal="area_entered" from="Despawners/LeftDespawner" to="Despawners" method="_on_despawner_entered"]
+[connection signal="area_entered" from="Despawners/TopDespawner" to="Despawners" method="_on_despawner_entered"]
+[connection signal="area_entered" from="Despawners/BottomDespawner" to="Despawners" method="_on_despawner_entered"]

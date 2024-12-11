@@ -24,8 +24,9 @@ func _on_zombie_killed(zombie: Zombie) -> void:
 		_show_next_round()
  
 func _show_next_round() -> void:
-	mid_title_label.visible = true
-	await get_tree().create_timer(5).timeout.connect(_start_next_round)
+	pass
+	#mid_title_label.visible = true
+	#await get_tree().create_timer(5).timeout.connect(_start_next_round)
 
 func _start_next_round() -> void:
 	mid_title_label.visible = false

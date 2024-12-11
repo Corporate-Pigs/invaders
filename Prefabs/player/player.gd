@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 class_name Player
 
@@ -18,7 +18,12 @@ func _getMovementDirectionFromInput() -> Vector2:
 	return Vector2(horizontalInput, verticalInput)
 
 func _moveInDirection(direction: Vector2) -> void:
-	position += direction * speed
+	if direction == Vector2.ZERO:
+		velocity = direction
+		return
+		
+	velocity += direction * speed
+	move_and_slide()
 
 func _rotateToMousePoint() -> void:
 	var mouse_position = get_viewport().get_mouse_position()
@@ -27,8 +32,10 @@ func _rotateToMousePoint() -> void:
 	direction = (mouse_position - center).normalized()
 	rotation = direction.angle()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	_rotateToMousePoint()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta: float) -> void:
 	var movementDirection = _getMovementDirectionFromInput()
 	_moveInDirection(movementDirection * delta)
-	_rotateToMousePoint()
