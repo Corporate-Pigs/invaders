@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcjgp8xowkghu"]
+[gd_scene load_steps=5 format=3 uid="uid://bcjgp8xowkghu"]
 
 [ext_resource type="Script" path="res://Prefabs/decoy/decoy.gd" id="1_mhu10"]
 [ext_resource type="Texture2D" uid="uid://cj4k21q8nrwi7" path="res://Assets/Sprites/bunker.png" id="2_t0qae"]
+[ext_resource type="PackedScene" uid="uid://vvmyq081qu4p" path="res://Prefabs/hp_bar/hp_bar.tscn" id="3_wrkp8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vtf08"]
 radius = 8.06226
@@ -18,5 +19,10 @@ texture = ExtResource("2_t0qae")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vtf08")
+
+[node name="HpBar" parent="." instance=ExtResource("3_wrkp8")]
+position = Vector2(-13, -22)
+current_hp = 1.0
+max_hp = 1.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

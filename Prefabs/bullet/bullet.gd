@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	position += direction * speed * delta
 
 func _on_area_entered(area: Area2D) -> void:
-	area.queue_free()
 	if area is Zombie:
 		var zombie = area as Zombie
+		zombie.damage(33)
 		EventBus.zombie_killed(zombie)
