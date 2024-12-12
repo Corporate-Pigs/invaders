@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Levels/game_scene.gd" id="1_r3gdk"]
 [ext_resource type="PackedScene" uid="uid://gx6pe31mxq3a" path="res://Prefabs/player/player.tscn" id="1_rch4r"]
 [ext_resource type="PackedScene" uid="uid://bcjgp8xowkghu" path="res://Prefabs/bunker/bunker.tscn" id="2_mkfif"]
-[ext_resource type="Script" path="res://Levels/spawners.gd" id="2_qhm6a"]
+[ext_resource type="Script" path="res://Prefabs/spawners.gd" id="2_qhm6a"]
 [ext_resource type="PackedScene" uid="uid://b02kqjnyyd170" path="res://Prefabs/zombie/zombie.tscn" id="3_15737"]
 [ext_resource type="Script" path="res://Prefabs/despawners.gd" id="4_skm5k"]
 

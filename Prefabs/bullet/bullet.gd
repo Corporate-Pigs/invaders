@@ -4,6 +4,7 @@ class_name Bullet
 
 @export var speed = 600
 @export var direction = Vector2.ZERO
+var damage: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

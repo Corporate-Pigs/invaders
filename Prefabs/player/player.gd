@@ -11,6 +11,9 @@ var direction = Vector2.UP
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	rotation = direction.angle()
+	var weapon_1911_scene = load("res://Prefabs/weapons/1911.tscn")
+	var weaponp_1911 = weapon_1911_scene.instantiate()
+	add_child(weaponp_1911)
 
 func _getMovementDirectionFromInput() -> Vector2:
 	var verticalInput = Input.get_axis("up", "down")

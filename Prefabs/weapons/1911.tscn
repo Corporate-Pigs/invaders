@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dolbov0bts3ej"]
+
+[ext_resource type="Script" path="res://Prefabs/weapons/1911.gd" id="1_m5pj0"]
+[ext_resource type="PackedScene" uid="uid://b0x0gnqm344wa" path="res://Prefabs/bullet/bullet.tscn" id="2_ad46e"]
+
+[node name="1911" type="Node2D"]
+script = ExtResource("1_m5pj0")
+gun_name = "Colt 1911"
+damage = 10.0
+magazine_size = 31
+fire_rate = 1200.0
+reload_speed = 1.0
+fire_mode = 1
+bullet_scene = ExtResource("2_ad46e")
