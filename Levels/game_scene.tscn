@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqipc1m3vccb3"]
+[gd_scene load_steps=16 format=3 uid="uid://bqipc1m3vccb3"]
 
 [ext_resource type="Script" path="res://Levels/game_scene.gd" id="1_r3gdk"]
 [ext_resource type="PackedScene" uid="uid://gx6pe31mxq3a" path="res://Prefabs/player/player.tscn" id="1_rch4r"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://Levels/spawners.gd" id="2_qhm6a"]
 [ext_resource type="PackedScene" uid="uid://b02kqjnyyd170" path="res://Prefabs/zombie/zombie.tscn" id="3_15737"]
 [ext_resource type="Script" path="res://Prefabs/despawners.gd" id="4_skm5k"]
+[ext_resource type="AudioStream" uid="uid://b0ai87bit12r" path="res://Assets/Audio/distant-warfare-51848.mp3" id="7_qnnl1"]
+[ext_resource type="Texture2D" uid="uid://ddo2bkd81q8n1" path="res://Assets/Sprites/map 1wip.png" id="8_iisqg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_346xx"]
 size = Vector2(38.5, 595)
@@ -33,6 +35,7 @@ script = ExtResource("1_r3gdk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(578, 326)
+zoom = Vector2(0.985, 0.985)
 
 [node name="RoundLabel" type="Label" parent="Camera2D"]
 offset_left = -550.0
@@ -129,6 +132,16 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Despawners/BottomDespawner"]
 position = Vector2(611, 677.5)
 shape = SubResource("RectangleShape2D_60m2b")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_qnnl1")
+volume_db = 0.937
+autoplay = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(578, 308)
+texture = ExtResource("8_iisqg")
 
 [connection signal="area_entered" from="Despawners/RightDespawner" to="Despawners" method="_on_despawner_entered"]
 [connection signal="area_entered" from="Despawners/LeftDespawner" to="Despawners" method="_on_despawner_entered"]

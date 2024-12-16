@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dksmrpgy6fx4w"
+path="res://.godot/imported/Se Hai Timore Del Vero.mp3-993469b446df75b552b80312ec1dbe35.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Se Hai Timore Del Vero.mp3"
+dest_files=["res://.godot/imported/Se Hai Timore Del Vero.mp3-993469b446df75b552b80312ec1dbe35.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,11 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0ehykqtr7y6k"]
+[gd_scene load_steps=5 format=3 uid="uid://b0ehykqtr7y6k"]
 
 [ext_resource type="Script" path="res://Levels/main_menu_scene.gd" id="1_s84ni"]
+[ext_resource type="Texture2D" uid="uid://1y5hes8xl4n1" path="res://Assets/Sprites/attack-of-the-dead-men-1915-v0-91tz1sp9circ1.webp" id="2_5ldu8"]
+[ext_resource type="Texture2D" uid="uid://ck3arlrx7tmng" path="res://Assets/Sprites/menubuttonwip.png" id="2_nrut3"]
+[ext_resource type="AudioStream" uid="uid://dksmrpgy6fx4w" path="res://Assets/Audio/Se Hai Timore Del Vero.mp3" id="3_wg67a"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_s84ni")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(578.275, 323.5)
+scale = Vector2(0.6021, 0.597222)
+texture = ExtResource("2_5ldu8")
+
 [node name="Label" type="Label" parent="."]
+visibility_layer = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -20,15 +30,17 @@ text = "Invaders"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+top_level = true
+visibility_layer = 3
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -250.0
-offset_top = -548.0
-offset_right = 250.0
-offset_bottom = -48.0
+offset_left = -249.0
+offset_top = -564.0
+offset_right = 251.0
+offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -36,18 +48,30 @@ size_flags_vertical = 4
 alignment = 2
 
 [node name="Play Button" type="Button" parent="VBoxContainer"]
+visibility_layer = 3
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
 theme_override_font_sizes/font_size = 45
 text = "Play"
+icon = ExtResource("2_nrut3")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Quit Button" type="Button" parent="VBoxContainer"]
+visibility_layer = 3
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 45
 text = "Quit"
+icon = ExtResource("2_nrut3")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wg67a")
+volume_db = -29.045
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]

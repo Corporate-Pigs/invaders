@@ -2,7 +2,7 @@ extends Area2D
 
 class_name Zombie 
 
-@export var speed = 150
+@export var speed = 50
 @export var reward = 1000
 
 var direction = Vector2.ZERO

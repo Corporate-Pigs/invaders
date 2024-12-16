@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://gx6pe31mxq3a"]
+[gd_scene load_steps=8 format=3 uid="uid://gx6pe31mxq3a"]
 
 [ext_resource type="Script" path="res://Prefabs/player/player.gd" id="1_uomrl"]
-[ext_resource type="Texture2D" uid="uid://c4gwatoe2myrv" path="res://Assets/Sprites/triangle.png" id="2_6ttuj"]
+[ext_resource type="Texture2D" uid="uid://dkiuqata008yy" path="res://Assets/Sprites/soldierweaponlesswip.png" id="2_5ody2"]
 [ext_resource type="Script" path="res://Prefabs/player/gun.gd" id="3_2ww6j"]
 [ext_resource type="PackedScene" uid="uid://b0x0gnqm344wa" path="res://Prefabs/bullet/bullet.tscn" id="4_6i6qt"]
+[ext_resource type="AudioStream" uid="uid://5a250p27lkoj" path="res://Assets/Audio/heathers-gunshot-effect2-100653.mp3" id="5_67cpj"]
+[ext_resource type="Texture2D" uid="uid://ckwecivty0pkw" path="res://Assets/Sprites/1911wip.png" id="6_61sf6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cman"]
 size = Vector2(32, 32)
@@ -13,11 +15,24 @@ script = ExtResource("1_uomrl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_6ttuj")
+rotation = 1.5708
+scale = Vector2(1.72, 1.72)
+texture = ExtResource("2_5ody2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6cman")
 
-[node name="Gun" type="Node2D" parent="."]
+[node name="Gun" type="Node2D" parent="." node_paths=PackedStringArray("gun_shot")]
 script = ExtResource("3_2ww6j")
 bullet_scene = ExtResource("4_6i6qt")
+gun_shot = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Gun"]
+stream = ExtResource("5_67cpj")
+volume_db = -15.928
+
+[node name="Sprite2D" type="Sprite2D" parent="Gun"]
+texture_filter = 1
+rotation = 1.5708
+scale = Vector2(1.735, 1.735)
+texture = ExtResource("6_61sf6")

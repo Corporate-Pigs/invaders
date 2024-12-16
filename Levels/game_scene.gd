@@ -9,8 +9,8 @@ var round: int = -1
 var dosh: int = 0
 var zombies_left = 0
 
-var zombies_per_round = [1, 2, 3, 4]
-var spawn_rate_per_round = [1, 0.9, 0.8, 0.7]
+var zombies_per_round = [100, 200, 300, 400]
+var spawn_rate_per_round = [0.25, 0.9, 0.8, 0.7]
 
 func _ready() -> void:
 	EventBus.connect(EventBus.on_zombie_killed, _on_zombie_killed)
