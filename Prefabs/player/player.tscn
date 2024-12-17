@@ -15,3 +15,12 @@ texture = ExtResource("2_6ttuj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6cman")
+
+[node name="WeaponLabels" type="Node2D" parent="."]
+
+[node name="MagazineCountLbl" type="Label" parent="WeaponLabels"]
+offset_left = -54.0
+offset_top = -40.0
+offset_right = 54.0
+offset_bottom = -17.0
+horizontal_alignment = 1

@@ -63,9 +63,6 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 text = "Next round INBOUND"
 
-[node name="Player" parent="." instance=ExtResource("1_rch4r")]
-position = Vector2(467, 293)
-
 [node name="Bunker" parent="." instance=ExtResource("2_mkfif")]
 position = Vector2(541, 365)
 
@@ -129,6 +126,9 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Despawners/BottomDespawner"]
 position = Vector2(611, 677.5)
 shape = SubResource("RectangleShape2D_60m2b")
+
+[node name="Player" parent="." instance=ExtResource("1_rch4r")]
+position = Vector2(300, 300)
 
 [connection signal="area_entered" from="Despawners/RightDespawner" to="Despawners" method="_on_despawner_entered"]
 [connection signal="area_entered" from="Despawners/LeftDespawner" to="Despawners" method="_on_despawner_entered"]

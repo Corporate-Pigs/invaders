@@ -1,4 +1,6 @@
-extends Node
+extends Node2D
+
+class_name Weapon
 
 enum FIRE_MODE {SINGLE, FULL_AUTO}
 
