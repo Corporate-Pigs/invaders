@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://gx6pe31mxq3a"]
+[gd_scene load_steps=8 format=3 uid="uid://gx6pe31mxq3a"]
 
 [ext_resource type="Script" path="res://Prefabs/player/player.gd" id="1_uomrl"]
 [ext_resource type="Texture2D" uid="uid://dkiuqata008yy" path="res://Assets/Sprites/soldierweaponlesswip.png" id="2_5ody2"]
@@ -20,13 +20,10 @@ rotation = 1.5708
 scale = Vector2(1.72, 1.72)
 texture = ExtResource("2_5ody2")
 
-[node name="Gun" type="Node2D" parent="."]
+[node name="Gun" type="Node2D" parent="." node_paths=PackedStringArray("gun_shot")]
 script = ExtResource("3_2ww6j")
 bullet_scene = ExtResource("4_6i6qt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5, -1)
-shape = SubResource("CircleShape2D_parw7")
+gun_shot = NodePath("AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Gun"]
 stream = ExtResource("5_67cpj")
@@ -38,5 +35,6 @@ rotation = 1.5708
 scale = Vector2(1.735, 1.735)
 texture = ExtResource("6_61sf6")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_dr0a3")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, -1)
+shape = SubResource("CircleShape2D_parw7")

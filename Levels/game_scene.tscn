@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqipc1m3vccb3"]
+[gd_scene load_steps=11 format=3 uid="uid://bqipc1m3vccb3"]
 
 [ext_resource type="Script" path="res://Levels/game_scene.gd" id="1_r3gdk"]
 [ext_resource type="PackedScene" uid="uid://gx6pe31mxq3a" path="res://Prefabs/player/player.tscn" id="1_rch4r"]
 [ext_resource type="PackedScene" uid="uid://bcjgp8xowkghu" path="res://Prefabs/decoy/decoy.tscn" id="2_mkfif"]
 [ext_resource type="Script" path="res://Prefabs/despawners.gd" id="4_skm5k"]
-[ext_resource type="AudioStream" uid="uid://b0ai87bit12r" path="res://Assets/Audio/distant-warfare-51848.mp3" id="7_qnnl1"]
 [ext_resource type="PackedScene" uid="uid://c676u215cqjc4" path="res://Prefabs/trensh/trensh.tscn" id="4_xid7u"]
+[ext_resource type="AudioStream" uid="uid://b0ai87bit12r" path="res://Assets/Audio/distant-warfare-51848.mp3" id="7_qnnl1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ybss"]
 size = Vector2(43.25, 775)
@@ -108,11 +108,6 @@ text = "Next round INBOUND"
 stream = ExtResource("7_qnnl1")
 volume_db = 0.937
 autoplay = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(578, 308)
-texture = ExtResource("8_iisqg")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Prefabs/player/player.tscn")
