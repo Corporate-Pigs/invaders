@@ -143,6 +143,10 @@ show_behind_parent = true
 position = Vector2(578, 308)
 texture = ExtResource("8_iisqg")
 
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Prefabs/player/player.tscn")
+spawn_path = NodePath("..")
+
 [connection signal="area_entered" from="Despawners/RightDespawner" to="Despawners" method="_on_despawner_entered"]
 [connection signal="area_entered" from="Despawners/LeftDespawner" to="Despawners" method="_on_despawner_entered"]
 [connection signal="area_entered" from="Despawners/TopDespawner" to="Despawners" method="_on_despawner_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://gx6pe31mxq3a"]
+[gd_scene load_steps=9 format=3 uid="uid://gx6pe31mxq3a"]
 
 [ext_resource type="Script" path="res://Prefabs/player/player.gd" id="1_uomrl"]
 [ext_resource type="Texture2D" uid="uid://dkiuqata008yy" path="res://Assets/Sprites/soldierweaponlesswip.png" id="2_5ody2"]
@@ -9,6 +9,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cman"]
 size = Vector2(32, 32)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_dr0a3"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_uomrl")
@@ -36,3 +41,6 @@ texture_filter = 1
 rotation = 1.5708
 scale = Vector2(1.735, 1.735)
 texture = ExtResource("6_61sf6")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_dr0a3")

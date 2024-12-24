@@ -4,9 +4,11 @@ class_name Player
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
-@export var speed = 500 
+@export var speed = 400 
 
 var direction = Vector2.UP
+func _enter_tree():
+	set_multiplayer_authority(name.to_int())
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
