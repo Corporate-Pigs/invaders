@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqipc1m3vccb3"]
+[gd_scene load_steps=11 format=3 uid="uid://bqipc1m3vccb3"]
 
 [ext_resource type="Script" path="res://Levels/game_scene.gd" id="1_r3gdk"]
 [ext_resource type="PackedScene" uid="uid://gx6pe31mxq3a" path="res://Prefabs/player/player.tscn" id="1_rch4r"]
 [ext_resource type="PackedScene" uid="uid://bcjgp8xowkghu" path="res://Prefabs/decoy/decoy.tscn" id="2_mkfif"]
 [ext_resource type="Script" path="res://Prefabs/despawners.gd" id="4_skm5k"]
 [ext_resource type="PackedScene" uid="uid://c676u215cqjc4" path="res://Prefabs/trensh/trensh.tscn" id="4_xid7u"]
+[ext_resource type="PackedScene" uid="uid://ddaeqev6p53ib" path="res://UI/InputSettings/InputSettings.tscn" id="6_6dxa6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ybss"]
 size = Vector2(43.25, 775)
@@ -102,6 +103,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 text = "Next round INBOUND"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InputSettings" parent="CanvasLayer" instance=ExtResource("6_6dxa6")]
+visible = false
 
 [connection signal="area_entered" from="Despawners/RightDespawner" to="Despawners" method="_on_despawner_entered"]
 [connection signal="area_entered" from="Despawners/LeftDespawner" to="Despawners" method="_on_despawner_entered"]

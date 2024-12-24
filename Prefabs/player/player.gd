@@ -13,8 +13,8 @@ func _ready() -> void:
 	rotation = direction.angle()
 
 func _getMovementDirectionFromInput() -> Vector2:
-	var verticalInput = Input.get_axis("up", "down")
-	var horizontalInput = Input.get_axis("left", "right")
+	var verticalInput = Input.get_axis("move up", "move down")
+	var horizontalInput = Input.get_axis("move left", "move right")
 	return Vector2(horizontalInput, verticalInput)
 
 func _moveInDirection(direction: Vector2) -> void:
