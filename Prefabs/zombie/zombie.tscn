@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b02kqjnyyd170"]
 
 [ext_resource type="Script" path="res://Prefabs/zombie/zombie.gd" id="1_gukvj"]
-[ext_resource type="Texture2D" uid="uid://qub7maqvy45" path="res://Assets/Sprites/zombie.png" id="1_ydjhd"]
+[ext_resource type="Texture2D" uid="uid://djln7j0ukkd7i" path="res://Assets/Sprites/zombiewip.png" id="2_ihos0"]
 [ext_resource type="PackedScene" uid="uid://vvmyq081qu4p" path="res://Prefabs/hp_bar/hp_bar.tscn" id="3_ge2mf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1p8ox"]
@@ -14,7 +14,9 @@ script = ExtResource("1_gukvj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_ydjhd")
+rotation = 4.71239
+scale = Vector2(1.995, 1.995)
+texture = ExtResource("2_ihos0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)

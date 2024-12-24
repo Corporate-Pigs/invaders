@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bxrrt5yglunop"]
+
+[ext_resource type="FontFile" uid="uid://02qtjlbcqtsi" path="res://Assets/Litoland Regular.otf" id="1_5v3oq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hfn2l"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0mh7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[resource]
+default_font = ExtResource("1_5v3oq")
+default_font_size = 15
+Button/colors/font_color = Color(0.966996, 0.963939, 0.964192, 1)
+Button/colors/font_focus_color = Color(0.985931, 0, 0.278735, 1)
+Button/colors/font_hover_color = Color(0.592846, 0.071843, 0.207194, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_hfn2l")
+Panel/styles/panel = SubResource("StyleBoxFlat_t0mh7")
